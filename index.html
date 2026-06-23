@@ -372,6 +372,66 @@
     }
     .warning-box strong { color: #5A3D00; }
 
+    /* SETTLEMENT */
+    .settle-box {
+      background: #BC8A6B;
+      color: white;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .settle-box-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.55);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .settle-intro {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 18px;
+    }
+    .settle-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13.5px;
+      margin-bottom: 10px;
+    }
+    .settle-row:last-child { margin-bottom: 0; }
+    .settle-key {
+      min-width: 70px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .settle-val { color: white; font-weight: 500; line-height: 1.6; }
+    .settle-val strong { color: #FFF3E9; font-weight: 700; }
+    .settle-copy {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .settle-copy::after { content: '⎘'; font-size: 11px; color: rgba(255,255,255,0.5); }
+    .apply-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 17px;
+      background: #BC8A6B;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 14px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .apply-btn:active { opacity: 0.8; }
+
     /* REFERENCE */
     .ref-box {
       display: grid;
@@ -622,6 +682,32 @@
   </div>
 </div>
 
+<!-- 정산 -->
+<div class="section">
+  <div class="section-label">Settlement</div>
+  <div class="section-title">정산</div>
+  <div class="settle-box">
+    <div class="settle-box-title">정산 안내</div>
+    <div class="settle-intro">
+      캠페인 선정 완료 후 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요.<br>
+      정산은 매월 5일 일괄 지급됩니다.
+    </div>
+    <div class="settle-row">
+      <div class="settle-key">제출 서류</div>
+      <div class="settle-val"><strong>성함, 연락처, 신분증 사본 (뒷자리 포함), 통장 사본</strong></div>
+    </div>
+    <div class="settle-row">
+      <div class="settle-key">수신 이메일</div>
+      <div class="settle-val"><strong class="settle-copy">hwangyksiriai@gmail.com</strong></div>
+    </div>
+    <div class="settle-row">
+      <div class="settle-key">메일 제목</div>
+      <div class="settle-val"><strong class="settle-copy">프리티액츄얼리 _이름_@인스타핸들</strong></div>
+    </div>
+  </div>
+  <a href="https://forms.gle/bamtWyJZmzTidA2W9" target="_blank" class="apply-btn">신청서 작성하기 →</a>
+</div>
+
 <!-- FOOTER -->
 <div class="footer">
   <strong>Pretty Actually (프리티액츄얼리)</strong><br>
@@ -655,6 +741,13 @@
     el.addEventListener('click', () => {
       const handle = el.textContent.replace('⎘', '').trim();
       copyText(handle);
+    });
+  });
+
+  document.querySelectorAll('.settle-copy').forEach(el => {
+    el.addEventListener('click', () => {
+      const value = el.textContent.replace('⎘', '').trim();
+      copyText(value);
     });
   });
 </script>
